@@ -1,11 +1,16 @@
 def is_prime(func):
     def wrapper(*args):
         num = func(*args)
+        prime_flag = True
         for i in range(2, num):
             if num % i == 0:
-                return f'Составное\n{num}'
-            else:
-                return f'Простое\n{num}'
+                prime_flag = False
+                break
+        if prime_flag:
+            print("Простое")
+        else:
+            print("Составное")
+        return num
     return wrapper
 
 
